@@ -1,0 +1,5 @@
+<RCC>
+<qresource prefix="/">
+    <file>data/EyePlanCollimator.txt</file>
+</qresource>
+</RCC>

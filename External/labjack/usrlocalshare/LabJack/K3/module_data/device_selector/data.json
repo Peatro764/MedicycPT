@@ -1,0 +1,7 @@
+{
+  "scanOptions": {
+    "scanUSB": true,
+    "scanEthernet": false,
+    "scanWiFi": false
+  }
+}

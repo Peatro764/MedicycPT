@@ -1,0 +1,8 @@
+Makefile*
+*.pro.user
+ui_*
+moc_*
+qrc_*
+*.rc
+*.o
+*~

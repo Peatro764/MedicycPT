@@ -1,0 +1,9 @@
+# Changes to SeanceRecord
+# alter table seancerecord add column est_dose real not null check (est_dose >= 0) default 0.0;
+# alter table seancerecord add column cf9_status integer[] not null check(0<=ALL(cf9_status)) default '{0}';
+# alter table seancerecord add column um_corr integer not null check (um_corr >= 0) default 0;
+# alter table seancerecord add column um_del_2 integer[] not null check(0<=ALL(um_del_2)) default '{0}';
+# alter table seancerecord rename column um_del to um_del_1;
+
+# Changes to DosimetryRecord
+# alter table dosimetryrecord add column air_ic_charge real not null check (air_ic_charge >= 0) default 0.0;

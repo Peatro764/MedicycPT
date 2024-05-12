@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="12.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>336</x>
+      <y>88</y>
+      <w>296</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>SliceStateMachine
+--
+public slots:
+Configure(xrange, yrange, dx, dy)
+Start()
+Abort()
+--
+Signals:
+Pixel(x, y, intensity)
+SliceFinished()
+Error(QString)
+--
+Private:
+IncrementStep()
+QStateMachine slice_sm
+LineStateMachine line_sm
+yrange
+dy
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>88</y>
+      <w>304</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>CubeStateMachine
+--
+public slots:
+Configure(xrange, yrange, zrange, dx, dy, dz)
+Start()
+Abort()
+--
+Signals:
+Pixel(x, y, z, intensity)
+CubeFinished()
+SliceFinished()
+Error(QString)
+--
+Private:
+QStateMachine cube_sm
+SliceStateMachine slice_sm
+zrange
+dz</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>656</x>
+      <y>88</y>
+      <w>304</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>LineStateMachine
+--
+public slots:
+Configure(xrange, dx)
+Start()
+Abort()
+--
+Signals:
+LineFinished()
+MoveFinished()
+Ready()
+MeasurementFinished(intensity)
+Error(QString)
+--
+Private:
+IncrementStep()
+QStateMachine line_sm
+xrange
+dx
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

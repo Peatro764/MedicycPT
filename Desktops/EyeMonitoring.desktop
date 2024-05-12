@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=ContourageOeil
+Comment=ContourageOeil
+Exec=/home/cyclo/build/release-MedicycPT/LaunchScripts/StartMEM.sh
+Icon=/home/cyclo/build/release-MedicycPT/Icons/EyeMonitoringIcon.jpg
+Terminal=false

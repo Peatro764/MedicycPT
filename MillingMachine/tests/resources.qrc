@@ -1,0 +1,6 @@
+<RCC>
+<qresource prefix="/">
+    <file>data/EyePlanCollimator.txt</file>
+    <file>data/CollimatorMillingProgram.txt</file>
+</qresource>
+</RCC>

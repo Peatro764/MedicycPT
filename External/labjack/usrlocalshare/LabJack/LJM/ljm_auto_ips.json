@@ -1,0 +1,61 @@
+{
+	"autoIPs" : 
+	[
+		{
+			"deviceType" : 7,
+			"errorDaysSinceSuccess" : [],
+			"ip" : "172.20.216.157",
+			"lastKnownDevice" : 
+			{
+				"firmware" : "1.0218",
+				"ljmConnectionType" : 6,
+				"name" : "My_T7_5082",
+				"serialNumber" : 470015082,
+				"usableMaxPacketBytes" : 1040
+			},
+			"port" : 52362
+		},
+		{
+			"deviceType" : 7,
+			"errorDaysSinceSuccess" : [],
+			"ip" : "172.20.216.157",
+			"lastKnownDevice" : 
+			{
+				"firmware" : "1.0218",
+				"ljmConnectionType" : 3,
+				"name" : "My_T7_5082",
+				"serialNumber" : 470015082,
+				"usableMaxPacketBytes" : 1040
+			},
+			"port" : 502
+		},
+		{
+			"deviceType" : 7,
+			"errorDaysSinceSuccess" : [],
+			"ip" : "172.20.216.158",
+			"lastKnownDevice" : 
+			{
+				"firmware" : "1.0242",
+				"ljmConnectionType" : 3,
+				"name" : "My_T7_5084",
+				"serialNumber" : 470015084,
+				"usableMaxPacketBytes" : 1040
+			},
+			"port" : 502
+		},
+		{
+			"deviceType" : 7,
+			"errorDaysSinceSuccess" : [],
+			"ip" : "172.20.216.158",
+			"lastKnownDevice" : 
+			{
+				"firmware" : "1.0242",
+				"ljmConnectionType" : 6,
+				"name" : "My_T7_5084",
+				"serialNumber" : 470015084,
+				"usableMaxPacketBytes" : 1040
+			},
+			"port" : 52362
+		}
+	]
+}

@@ -1,0 +1,123 @@
+
+
+
+.module-chrome-tabs {
+    position: absolute;
+    left: 0px;
+    z-index: 1000;
+}
+.module-chrome-tab {
+}
+.module-tab-holder {
+    width:150px;
+}
+
+.module-chrome-header-tabs, .module-chrome-footer-tabs {
+    position: fixed;
+    height: 40px;
+}
+.module-chrome-header-tabs {
+    top:0;
+}
+.module-chrome-body-tabs {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    height: 100%;
+}
+.module-list {
+    list-style-type: none;
+    margin-bottom: 0px;
+    margin-left:10px;
+}
+.module-chrome-header-tab-list {
+    margin-left:2px;
+}
+.module-chrome-body-tab-list {
+    overflow-y: auto;
+    height: 100%;
+}
+.module-chrome-footer-tab-list {
+    margin-left:2px;
+}
+.module-chrome-footer-tabs {
+    /*position:absolute;*/
+    bottom:0px;
+}
+.module-chrome-body {
+    position: absolute;
+    left: 150px;
+    right: 0;
+}
+
+#module-chrome-contents-holder {
+    background-color: white;
+    -moz-box-shadow: 0 0 5px #000000;
+    -webkit-box-shadow: 0 0 5px #000000;
+    box-shadow: 0 0 5px #000000;
+    margin-left: 3px;
+}
+
+.body-tab {
+    display:none;
+}
+
+
+.module-list li {
+    background-color: #E0E0E0;
+    color: black;
+    padding: 8px;
+    padding-right:0;
+    margin-bottom: 2px;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+.module-list li:active {
+    cursor: pointer;
+}
+
+.module-list li:hover {
+    background-color: #888888;
+    color: white;
+}
+.module-list .selected {
+    background-color: #999999;
+    color: white;
+}
+.module-list li a {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*
+Styling for the contents/body data
+*/
+#module-chrome-contents {
+    overflow: auto;
+    /*padding: 10px 10px 10px 10px;*/
+    padding:0;
+}
+#module-chrome-loaded-module-view {
+    min-width:500px;
+}
+
+.module-chrome-body-tab-list {
+    /*margin-top: 2px;*/
+}
+
+.module-chrome-tab-link {
+    width:95px;
+    display:inline-block;
+}
+.module-chrome-tab-badge {
+    display:inline-block;
+    float:right;
+}
+
+.module-chrome-task-view {
+    display:none;
+}

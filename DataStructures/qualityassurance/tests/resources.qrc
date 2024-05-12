@@ -1,0 +1,7 @@
+<RCC>
+<qresource prefix="/">
+    <file>data/braggpeak.csv</file>
+    <file>data/sobp_10000_norangeshifter.csv</file>
+    <file>data/sobp_1084.csv</file>
+ </qresource>
+</RCC>

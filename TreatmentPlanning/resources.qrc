@@ -1,0 +1,37 @@
+<RCC>
+<qresource prefix="/">
+    <file>images/math_utils.png</file>
+    <file>images/modulateur_library2.png</file>
+    <file>images/modulateur_library_bw.png</file>
+    <file>images/compensateur2.png</file>
+    <file>images/compensateur_bw.png</file>
+    <file>images/modulateur2.png</file>
+    <file>images/modulateur_bw.png</file>
+    <file>images/collimateur2.png</file>
+    <file>images/collimateur_bw.png</file>
+    <file>images/dossier.png</file>
+    <file>images/dossier_bw.png</file>
+    <file>images/background_small.jpg</file>
+    <file>images/background_large.jpg</file>
+    <file>images/eye.jpg</file>
+    <file>images/eye_small.png</file>
+    <file>images/warning.jpeg</file>
+    <file>images/questionmark_button.png</file>
+    <file>images/settings_button.png</file>
+    <file>images/log_button.png</file>
+    <file>images/exit_button.png</file>
+    <file>images/connected_red_button.png</file>
+    <file>images/connected_green_button.png</file>
+    <file>images/db_button_green.png</file>
+    <file>images/db_button_red.png</file>
+    <file>images/delete_button.png</file>
+    <file>images/print_button.png</file>
+    <file>images/save_button.png</file>
+    <file>images/start_button.png</file>
+    <file>images/disabled_button.png</file>
+    <file>images/arrow_left_blue.png</file>
+    <file>images/arrow_right_blue.png</file>
+    <file>images/arrow_top_blue.png</file>
+    <file>images/create_new_button.png</file>
+</qresource>
+</RCC>

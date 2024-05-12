@@ -1,0 +1,1 @@
+insert into balisecalibration(timestamp, sv_per_coulomb, doseRateToH_alpha, doseRateToH_beta, HToDoseRate_alpha, HToDoseRate_beta) values('2017-01-01', 7474.54, 2.47715 * power(10.0, -7.0), -1.27736, 5.63204 * power(10.0, -9.0), -0.787305);

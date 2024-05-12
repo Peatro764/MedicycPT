@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=TreatmentPlanning
+Comment=TreatmentPlanning
+Exec=/home/cyclo/build/release-MedicycPT/LaunchScripts/StartMTP.sh
+Icon=/home/cyclo/build/release-MedicycPT/Icons/TreatmentPlanningIcon.png
+Terminal=false

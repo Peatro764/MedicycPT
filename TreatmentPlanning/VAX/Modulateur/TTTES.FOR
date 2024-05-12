@@ -1,0 +1,717 @@
+C-------------------------------------------------------------------------------
+C		PROGRAMME DE CALCUL DES MODULATEURS
+C
+C                       		J.HERAULT 10.10.91
+C					REVU LE   07.04.94,17.04.98,02.03.99
+C						  04.05.99, 24.06.99	 
+C------------------------------------------------------------------------------
+
+
+C-------------------------------------------------------------------------------
+C	ENTREE DU TYPE DES DONNEES
+C-------------------------------------------------------------------------------
+
+	CHARACTER*10 DA,HEU,OC,OAC,OAD,OO,DAT*20,NUME*30,NUMERO*50
+	CHARACTER*5 V*2,C,TEX1,TEX2,TEX3,TEX4,NUMB*3,FICHN*7
+	INTEGER*4 IND,I,J,W,JMA,IJ,JMA1,KI,KL,COM,MM1
+	INTEGER*4 MM2,MM3,IIK1,IIK2,IIK3,IIK,AAA*2
+	INTEGER*4 IPMAX,IPMIN,ZER,VAR,COU,JMAX,IMAX,JK,II
+	LOGICAL BOO
+	REAL*4 MAX,SUM,SUM1,SUM2,SUM3,EPS,ZE,SUM4,BN,CJ,YO,PARMAX
+	REAL*4 MODULATION,PARCOURS,PASMODUL,DEGRADEUR,WI,SMOD,SMOD1
+	REAL*4 PARJ,XXX,MAX1,PARCOURST,MODULATIONT,CORRFIT,XHER,HER
+	DIMENSION P(150),O(150),OA(150),OB(150),A(150,150),FI(150)
+	DIMENSION TEST(150),SUM3(150),BN(150),C(150),V(150)
+	DIMENSION OC(150),OAC(150),OAD(150),B(150,150),OO(150)
+	DIMENSION AAA(100,2)
+	PARAMETER (EPS=0.00001)
+	PARAMETER (ZE=0.0)
+	PARAMETER (ZER=0)
+	PARAMETER (JMAX=149)
+	PARAMETER (PARJ=0.2)
+	PARAMETER (PARMAX=27.5)
+	PARAMETER (PASMODUL=0.8)
+C-------------------------------------------------------------------------------
+C	INITIALISATIONS
+C-------------------------------------------------------------------------------
+
+	WRITE (*,*) 'ENTRER LE NOM ET LE NUMERO DE DOSSIER DU PATIENT '
+	READ (*,99) NUME
+ 99     FORMAT (A30)
+	WRITE (*,*) 'ENTRER LE NUMERO DU PATIENT, I.E 696 POUR 93696'
+	READ (*,27) NUMB
+ 27	FORMAT (A3)
+	WRITE (*,*) 'ENTRER LE PARCOURS SOUHAITE (MM DE TISSU OCULAIRE)'
+	READ (*,*) PARCOURST
+	WRITE (*,*) 'ENTRER LA MODULATION SOUHAITEE (MM DE TISSU OCULAIRE)'
+	READ (*,*) MODULATIONT
+	PARCOURS=PARCOURST*1.05/1.18
+	MODULATION=MODULATIONT*1.05/1.18
+	IMAX=JNINT(PARMAX/PASMODUL)
+	DO I=1,IMAX
+		P(I)=0.
+		O(I)=0.
+		OA(I)=0.0
+		OB(I)=0.0
+		DO J=1,JMAX
+			A(I,J)=0.
+			B(I,J)=0.
+		END DO
+	END DO       
+	DO J=1,JMAX
+		SUM3(J)=0.
+	END DO
+
+C-------------------------------------------------------------------------------
+C	ENTREE DES FICHIERS DE DONNEES PICS DE BRAGG
+C-------------------------------------------------------------------------------
+
+	 OPEN (UNIT=20,FILE='[JOEL.ALPHA.BRAGG.DABRAG]BR_FEV92.DAT',STATUS='OLD')	
+	 READ (20,*) FI
+  20	 FORMAT (F7.3)
+	 DO J=1,JMAX
+	 	B(1,J)=FI(J)
+         END DO
+
+C-------------------------------------------------------------------------------
+C	GENERATION DE L''ENSEMBLE DES FICHIERS POSSIBLES
+C-------------------------------------------------------------------------------
+
+        DO I=2,IMAX
+		XXX=FLOATJ(I-1)
+		HER=XXX*PASMODUL
+		WI=FONCT(HER)
+		DO J=1,JMAX
+			JK=J+JINT((I-1)*PASMODUL/PARJ) 
+		 	IF (JK.LE.JMAX) THEN
+				B(I,J)=B(1,JK)*WI
+			ELSE 
+				B(I,J)=0.0
+			END IF
+		END DO
+	END DO
+	DEGRADEUR=PARMAX-PARCOURS-0.4  !Decalage 90/100% bord distal
+	IPMAX=JNINT((DEGRADEUR+MODULATION)/PASMODUL)+1
+	IPMIN=JNINT(DEGRADEUR/PASMODUL)
+	IF (IPMIN.EQ.0) THEN
+		IPMIN=IPMIN+1
+		IPMAX=IPMAX+1
+	END IF
+	IF (IPMAX.GT.JINT(PARMAX/PASMODUL)) THEN
+		IPMIN=IPMIN-1
+		IPMAX=IPMAX-1
+	END IF
+
+C-------------------------------------------------------------------------------
+C	GENERATION DE LA MATRICE UTILE
+C-------------------------------------------------------------------------------
+
+	DO I=IPMIN,IPMAX
+		O(I)=1.
+		P(I)=1.
+		DO J=1,JMAX
+			A(I,J)=B(I,J)	
+	        END DO
+ 	END DO
+
+C-------------------------------------------------------------------------------
+C	DEROULEMENT DU PROGRAMME PRINCIPAL
+C-------------------------------------------------------------------------------
+	
+C-------------------------------------------------------------------------------
+C	SOMMATION DES PICS DE BRAGG ET RECHERCHE DU POIDS OPTIMAL
+C-------------------------------------------------------------------------------
+
+	BOO=.FALSE.
+	COU=1
+	DO WHILE (BOO.EQ..FALSE.)
+        	DO I=IPMIN,IPMAX
+	  		IF (COU.EQ.1) THEN 
+	   			VAR=I
+	  		ELSE
+	   			VAR=IPMAX
+	  		END IF
+	  		IF (P(I).EQ.0.0) GO TO 40
+	  		MAX=A(I,1)
+	  		JMA=1
+	  		DO J=1,JMAX
+  				IF (A(I,J).GT.MAX) THEN 
+					MAX=A(I,J) 
+          				JMA=J
+   				END IF
+ 			END DO 
+	  		SUM=0.0
+			IF (MAX.EQ.0.0) THEN
+				P(I)=0.0
+				GO TO 40
+			END IF
+	  		DO IJ=IPMIN,VAR
+	   			SUM=SUM+A(IJ,JMA)
+			END DO 
+			CORRFIT=1.14
+			IF (I.EQ.IPMIN) CORRFIT=1.
+			IF (I.EQ.(IPMIN+1)) CORRFIT=1.09   
+			IF (I.EQ.(IPMIN+2)) CORRFIT=1.11
+			IF (I.EQ.(IPMIN+3)) CORRFIT=1.13      
+		       	IF (I.EQ.IPMAX) CORRFIT=1.13
+		       	IF (I.EQ.IPMIN) THEN
+	   			SUM1=SUM
+	   			JMA1=JMA
+           		ELSE
+	  			P(I)=(SUM1*CORRFIT-SUM+MAX)/MAX
+	   			IF (P(I).LT.ZE) THEN 
+	    				P(I)=0.0
+	   			END IF
+	  		END IF
+ 40      		CONTINUE 
+	  		TEST(I)=O(I)
+	  		O(I)=O(I)*P(I)
+	  		DO J=1,JMAX
+	   			A(I,J)=P(I)*A(I,J)
+	  		END DO
+      	  		SUM1=0.0
+	  		DO KL=1,VAR
+	   			SUM1=SUM1+A(KL,JMA1)
+			END DO
+      		END DO
+	 	COM=0
+	 	DO I=IPMIN,IPMAX
+	  		X=ABS(TEST(I)-O(I))
+          		IF (X.GT.EPS) THEN 
+	   			COM=COM+1
+     	  		END IF
+	 	END DO
+	 	IF (COM.EQ.ZER)  THEN
+	  		BOO=.TRUE.
+	 	END IF
+	 	COU=COU+1
+ 	END DO
+	
+C-------------------------------------------------------------------------------
+C	CALCUL DE LA PONDERATION ASSOCIEE A CHAQUE EPAISSEUR I DE 
+C	CONVERTISSEUR D'ENERGIE
+C-------------------------------------------------------------------------------
+	O(IPMIN)=O(IPMIN)
+	O(IPMIN+1)=O(IPMIN+1)
+	O(IPMAX)=O(IPMAX)
+	DO J=1,JMAX
+		A(IPMIN,J)=A(IPMIN,J)
+		A(IPMIN+1,J)=A(IPMIN+1,J)
+		A(IPMAX,J)=A(IPMAX,J)
+	END DO
+	MAX1=SUM3(1)
+	DO J=1,JMAX
+         	DO I=IPMIN,IPMAX
+          		SUM3(J)=SUM3(J)+A(I,J)
+         	END DO
+	 	IF (SUM3(J).GT.MAX1) THEN 
+	  		MAX1=SUM3(J)
+	 	END IF
+	END DO
+
+	DO J=1,JMAX
+	 	SUM3(J)=SUM3(J)/MAX1
+	END DO
+
+C-------------------------------------------------------------------------------
+C	CALCUL DE L'ETENDUE DES SECTEURS ANGULAIRES ASSOCIEE A CHAQUE
+C	EPAISSEUR I DE CONVERTISSEUR D'ENERGIE POUR UN MODULATEUR A
+C	4 PALES
+C-------------------------------------------------------------------------------
+
+	SUM4=0.0
+	DO I=IPMIN,IPMAX
+	 	SUM4=SUM4+O(I)
+	END DO
+	DO I=IPMIN,IPMAX
+	 	OA(I)=(90.0*O(I))/SUM4
+	END DO
+	OB(IPMIN)=90.
+	DO I=IPMIN+1,IPMAX
+		OB(I)=OB(I-1)-OA(I-1)
+	END DO
+	DO I=IPMIN,IPMAX
+		OB(I)=OB(I)/2
+		II=I-IPMIN
+		WRITE (OO(I),90) II
+      	 	WRITE (OC(I),80) O(I)
+	 	WRITE (OAC(I),80) OA(I)
+		WRITE (OAD(I),80) OB(I)
+  80	 	FORMAT (F7.3)
+  90		FORMAT (I4)
+	END DO
+
+C-------------------------------------------------------------------------------
+C	REPRESENTATION GRAPHIQUE DE L'EFFET DE LA PONDERATION
+C-------------------------------------------------------------------------------
+
+	L=999999
+	F=1E36
+	DO J=1,JMAX
+		BN(J)=FLOAT(J)*PARJ
+	END DO
+	CJ=FLOAT(JMAX)*PARJ+PASMODUL
+	CALL DATE (DA)
+	CALL TIME (HEU)
+	DAT=DA//HEU
+	NUMERO=DAT//NUME
+	WRITE (TEX1,95) DEGRADEUR
+	WRITE (TEX2,100) PARCOURST
+	WRITE (TEX3,100) MODULATIONT
+	WRITE (TEX4,110) PASMODUL
+  95	FORMAT (F4.1)
+ 100    FORMAT (F4.1)
+ 110	FORMAT (F4.2)
+	CALL GRAOPE
+	CALL GRACOI (4)
+	CALL GRAHED ('SOMMATION DES PICS DE BRAGG',0.5)
+	CALL GRAHED ('y = #2#S#1#o(i)a(i,j)',.5)
+	CALL GRAHED (NUMERO,.5)
+	CALL GRAVWP (F,F,20.,15.)
+	CALL GRAWND (0.,CJ,0.,1.2)
+	CALL GRACOM (.5,'Epaisseur de plexiglas (mm)',L,'y',.5)
+	CALL GRAXI1 (-4,L,L,F)
+        CALL GRAYI1 (-4,L,L,F)
+	CALL GRAPH1 (BN,SUM3,JMAX,1,5,0.0)
+	CALL GRATEX (3.,5.5,.35,'Unites en mm de plexiglas',0.,XE,YE,1)
+	CALL GRATEX (3.,5.,.35,'Degradeur='//TEX1,0.,XE,YE,1)
+	CALL GRATEX (3.,4.5,.35,'Pas de la modulation='//TEX4,0.,XE,YE,1)
+        CALL GRATEX (10.,5.5,.35,'Unites en mm de tissu oculaire',0.,
+     1	XE,YE,1)
+	CALL GRATEX (10.,5.,.35,'Parcours demande='//TEX2,0.,XE,YE,1)
+	CALL GRATEX (10.,4.5,.35,'Modulation demandee='//TEX3,0.,XE,YE,1)
+	CALL GRATEX (22.,23.,.35,'Pas',0.,XE,YE,1)
+	CALL GRATEX (25.,23.,.35,'O(i)',0.,XE,YE,1)
+	CALL GRATEX (28.,23.,.35,'OA(i)',0.,XE,YE,1)
+	CALL GRATEX (31.,23.,.35,'OB(i)',0.,XE,YE,1)
+	YO=23.
+	DO I=IPMIN,IPMAX
+		YO=YO-.5
+		CALL GRATEX (22.,YO,.35,OO(I),0.,XE,YE,1)
+	END DO
+	YO=23.
+	DO I=IPMIN,IPMAX
+		YO=YO-.5
+	 	CALL GRATEX (25.,YO,.35,OC(I),0.,XE,YE,1)
+	END DO
+	YO=23.
+	DO I=IPMIN,IPMAX
+		YO=YO-.5
+	 	CALL GRATEX (28.,YO,.35,OAC(I),0.,XE,YE,1)
+	END DO
+	YO=23.
+	DO I=IPMIN,IPMAX
+		YO=YO-.5
+		CALL GRATEX (31.,YO,.35,OAD(I),0.,XE,YE,1)
+	END DO
+	CALL LIB$WAIT(10.0)
+	CALL GRACLX(0,1,0,0)
+C-------------------------------------------------------------------------------
+C	SI LE RESULTAT N'EST PAS SATISFAISANT RECOMMENCER L'OPERATION
+C	UN PAS PLUS GRAND OU PLUS PETIT.
+C-------------------------------------------------------------------------------
+C
+C-------------------------------------------------------------------------------
+C	CREATION DU PROGAMME POUR LA FRAISEUSE.
+C-------------------------------------------------------------------------------
+	FICHN=NUMB//'.DAT'
+	SMOD=FLOAT(IPMAX-IPMIN)*0.8
+	HSMOD=4
+	IF (SMOD.LT.10.) HSMOD=3 
+	SMOD1=SMOD-0.8
+	HSMOD1=4  
+	IF (SMOD1.LT.10.) HSMOD1=3  
+	OPEN (UNIT=7,FILE='[MEDICAL.PROTON.MODUL.PATI]'//FICHN,TYPE='NEW',FORM='FORMATTED')
+	WRITE (7,200) NUMB
+ 200	FORMAT (X,'0 BEGIN PGM ',A3,' MM')
+	WRITE (7,201) SMOD
+ 201	FORMAT (X,'1 BLK FORM 0.1 Z X-95 Y-95 Z-',F<HSMOD>.1)
+	WRITE (7,202)
+ 202	FORMAT (X,'2 BLK FORM 0.2 X+95 Y+95 Z+2')   
+ 	WRITE (7,203) SMOD
+ 203	FORMAT (X,'3 FN 0: Q1 = +',F<HSMOD>.1)
+	WRITE (7,204)
+ 204	FORMAT (X,'4 FN 0: Q2 = +2.975'/
+	1	X,'5 TOOL DEF 1 L+0 R+Q2'/
+	2	X,'6 TOOL DEF 2 L+0 R+1.5'/
+	3	X,'7 TOOL DEF 3 L+0 R+Q2'/
+	4	X,'8 TOOL CALL 1 Z S 2500'/
+	5	X,'9 L X+0 Y+0 R0 F MAX M13'/
+	6	X,'10 CC X+0 Y+0')
+	HOB=6
+	IF (OB(IPMIN+1).LT.10.) HOB=5  
+	WRITE (7,205) OB(IPMIN+1)
+ 205	FORMAT (X,'11 FN 0: Q5 = +',F<HOB>.3)
+ 	WRITE (7,206)
+ 206	FORMAT (X,'12 FN 12: IF +Q5 LT +38.5 GOTO LBL 6'/
+	1	X,'13 FN 9: IF +Q5 EQU +38.5 GOTO LBL 6'/
+	2	X,'14 LP PR+20 PA+Q5 RL F MAX M13'/
+	3	X,'15 FN 4: Q3 = -Q1 DIV +3'/		
+	4	X,'16 FN 2: Q4 = -Q1 - +Q3'/
+	5	X,'17 FN 1: Q14 = -Q1 + +0.8'/
+	6	X,'18 L Z+10 RL F MAX M'/
+	7	X,'19 L Z+Q3 RL F 180 M'/
+	8	X,'20 LBL 1'/  
+	9	X,'21 LP PR+62 PA+Q5 RL F180 M'/
+	1	X,'22 L IZ-0.8 RL F M'/
+	1	X,'23 LP PR+94.5 PA+Q5 RL F180 M'/
+	2	X,'24 RND R2 F'/
+	3	X,'25 CP PA-Q5 DR- RL F M'/
+	4	X,'26 RND R2 F'/
+	5	X,'27 LP PR+62 PA-Q5 RL F M'/
+	6	X,'28 L IZ+0.8 RL F M'/
+	7	X,'29 LP PR+20 PA-Q5 RL F M'/
+	8	X,'30 L Z+10 RL F MAX M'/
+	9	X,'31 L X+0 Y+0 R0 F MAX M'/
+	1	X,'32 LP PR+20 PA+Q5 RL F MAX M'/
+	1	X,'33 LBL 0'/
+   	2	X,'34 L Z+Q4 RL F180 M'/
+	3	X,'35 CALL LBL 1 REP'/
+	4	X,'36 L Z+Q14 RL F180 M'/
+	5	X,'37 CALL LBL 1 REP'/
+	2	X,'38 CYCL DEF 10.0 ROTATION'/
+	3	X,'39 CYCL DEF 10.1 IROT+90'/	
+	4	X,'40 LP PR+20 PA+Q5 RL F MAX M'/
+   	5	X,'41 L Z+Q3 RL F180 M'/
+	6	X,'42 CALL LBL 1 REP 3 /3'/
+	7	X,'43 CYCL DEF 10.0 ROTATION'/
+	8	X,'44 CYCL DEF 10.1 ROT+0'/	
+	6	X,'45 FN 11: IF +Q5 GT +38.5 GOTO LBL 8'/
+	7	X,'46 LBL 6'/
+	8	X,'47 LP PR+20 PA+Q5 RL F MAX M13'/
+	9	X,'48 FN 4: Q3 = -Q1 DIV +3'/		
+	1	X,'49 FN 2: Q4 = -Q1 - +Q3'/
+	1	X,'50 L Z+10 RL F MAX M'/
+	2	X,'51 L Z+Q3 RL F 180 M'/
+	7	X,'52 LBL 7'/
+	8	X,'53 LP PR+94.5 PA+Q5 RL F180 M'/
+	9	X,'54 RND R2 F'/
+	1	X,'55 CP PA-Q5 DR- RL F M'/
+	1	X,'56 RND R2 F'/
+	2	X,'57 LP PR+20 PA-Q5 RL F M'/
+	3	X,'58 L Z+10 RL F MAX M'/
+	4	X,'59 L X+0 Y+0 R0 F MAX M'/
+	5	X,'60 LP PR+20 PA+Q5 RL F MAX M'/
+	6	X,'61 LBL 0'/
+   	7	X,'62 L Z+Q4 RL F180 M'/
+	8	X,'63 CALL LBL 7 REP'/
+	9	X,'64 L Z-Q1 RL F180 M'/
+	1	X,'65 CALL LBL 7 REP'/
+	2	X,'66 CYCL DEF 10.0 ROTATION'/
+	3	X,'67 CYCL DEF 10.1 IROT+90'/	
+	4	X,'68 LP PR+20 PA+Q5 RL F MAX M'/
+   	5	X,'69 L Z+Q3 RL F180 M'/
+	6	X,'70 CALL LBL 7 REP 3 /3'/
+	7	X,'71 CYCL DEF 10.0 ROTATION'/
+	8	X,'72 CYCL DEF 10.1 ROT+0'/	
+	1	X,'73 LBL 8'/
+	9	X,'74 L R F M25'/
+	1	X,'75 TOOL CALL 1 Z S 2500'/
+	2	X,'76 FN 0: Q20 = +100'/
+	3	X,'77 FN 0: Q21 = +130'/
+	4	X,'78 FN 0: Q22 = +180'/
+	1	X,'79 LBL 10')
+	HOB=6
+	IF (OB(IPMIN+2).LT.10.) HOB=5  
+	WRITE (7,207) OB(IPMIN+2)
+ 207	FORMAT (X,'80 FN 0: Q6 = +',F<HOB>.3)
+        WRITE (7,208)
+ 208    FORMAT (X,'81 FN 2: Q7 = +Q1 - +0.8'/		
+	1	X,'82 FN 2: Q8 = +Q5 - +Q6'/
+	2	X,'83 FN 4: Q9 = +Q8 DIV +2'/
+	3	X,'84 FN 2: Q10 = +Q5 - +Q9'/ 
+	4	X,'85 LBL 5'/
+	5	X,'86 FN 7: Q11 = COS +Q6'/
+	6	X,'87 FN 4: Q12 = +Q2 DIV +Q11'/ 
+	1	X,'88 LBL 0'/
+	2	X,'89 LBL 2'/
+	3	X,'90 L Z+10 R0 F MAX M13'/
+	3	X,'91 CC X+0 Y+Q12'/
+	4	X,'92 LP PR+98 PA+Q10 R0 F MAX M13'/
+	5	X,'93 L Z-Q7 R0 FQ20 M')
+	IIK=94
+	MM1=2
+	MM2=2
+	MM3=2
+	MM4=2
+	NNN=98
+	MMM=20
+	DO I=IPMIN+3,IPMAX
+       	IIK1=IIK
+	IF (IIK1.GE.100) MM1=3
+	IIK2=IIK+1
+	IF (IIK2.GE.100) MM2=3
+	IIK3=IIK+2
+	IF (IIK3.GE.100) MM3=3
+	IIK4=IIK+3
+	IF (IIK4.GE.100) MM4=3
+       	HOB=6
+	IF (OB(I).LT.10.) HOB=5 
+	WRITE (7,209) IIK1,MMM,IIK2,NNN,IIK3,OB(I),IIK4
+ 209	FORMAT (X,I<MM1>,' LP PR+',I2,' PA+Q6 R0 FQ21 M'/
+	1	X,I<MM2>,' LP PR+',I2,' IPA+0 R0 F M'/
+	2	X,I<MM3>,' FN 0: Q6 = +',F<HOB>.3/
+	3	X,I<MM4>,' CALL LBL 3 REP') 
+	IIK=IIK4+1
+	JJJ=NNN
+	NNN=MMM
+	MMM=JJJ
+	END DO	
+       	IIK1=IIK
+	IF (IIK1.GE.100) MM1=3
+	IIK2=IIK+1
+	IF (IIK2.GE.100) MM2=3
+     	IIK3=IIK+2
+	IF (IIK3.GE.100) MM3=3
+	IIK4=IIK+3
+	IF (IIK4.GE.100) MM4=3
+     	WRITE (7,302) IIK1,MMM,IIK2,NNN,IIK3,IIK4
+ 302	FORMAT (X,I<MM1>,' LP PR+',I2,' PA+Q6 R0 F M'/
+	1	X,I<MM2>,' LP PR+',I2,' IPA+0 R0 F M'/
+	2	X,I<MM3>,' FN 0: Q6 = +0'/
+	3	X,I<MM4>,' CALL LBL 3 REP')
+	IIK=IIK4+1
+       	IIK1=IIK
+	IF (IIK1.GE.100) MM1=3
+	IIK2=IIK+1
+	IF (IIK2.GE.100) MM2=3
+	IIK3=IIK+2
+	IF (IIK3.GE.100) MM3=3
+	IIK4=IIK+3
+	IF (IIK4.GE.100) MM4=3
+        HOB=6
+	IF (OB(IPMIN+2).LT.10.) HOB=5  
+	WRITE (7,210) IIK1,NNN,IIK2,MMM
+ 210	FORMAT (X,I<MM1>,' LP PR+',I2,' PA+Q6 R0 F M'/
+	1	X,I<MM2>,' LP PR+',I2,' IPA+0 R0 F M')
+	WRITE (7,268) IIK3,OB(IPMIN+2),IIK4
+ 268	FORMAT (X,I<MM3>,' FN 0: Q6 = +',F<HOB>.3/
+	1	X,I<MM4>,' CALL LBL 3 REP')
+	IIK=IIK4+1
+	DO L=1,100
+		AAA(L,1)=IIK
+		IF (IIK.GE.100) THEN
+			AAA(L,2)=3
+		ELSE
+			AAA(L,2)=2
+		END IF
+		IIK=IIK+1
+	END DO
+	L=1
+	WRITE (7,211) AAA(L,1)
+ 211	FORMAT (X,I<AAA(L,2)>,' LBL 0')
+	L=L+1
+	WRITE (7,212) AAA(L,1)
+ 212	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')
+	L=L+1
+	WRITE (7,213) AAA(L,1)
+ 213	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 IROT+90')	
+ 	L=L+1
+	WRITE (7,214) AAA(L,1)
+ 214	FORMAT (X,I<AAA(L,2)>,' CALL LBL 2 REP 3 /3')
+	L=L+1
+	WRITE (7,215) AAA(L,1)
+ 215	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')	
+	L=L+1
+	WRITE (7,216) AAA(L,1)
+ 216	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 ROT+0')	
+	L=L+1
+	WRITE (7,217) AAA(L,1)
+ 217	FORMAT (X,I<AAA(L,2)>,' LBL 4')
+	L=L+1
+	WRITE (7,218) AAA(L,1)
+ 218	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 8.0 IMAGE MIROIR')
+ 	L=L+1
+	WRITE (7,219) AAA(L,1)
+ 219	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 8.1 Y')
+ 	L=L+1
+	WRITE (7,220) AAA(L,1)
+ 220	FORMAT (X,I<AAA(L,2)>,' CALL LBL 2 REP')
+	L=L+1
+	WRITE (7,221) AAA(L,1)
+ 221	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 8.0 IMAGE MIROIR')
+	L=L+1
+	WRITE (7,222) AAA(L,1)
+ 222	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 8.1')
+	L=L+1
+	WRITE (7,223) AAA(L,1)
+ 223	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')
+	L=L+1
+	WRITE (7,224) AAA(L,1)
+ 224	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 IROT+90')
+	L=L+1
+	WRITE (7,225) AAA(L,1)
+ 225	FORMAT (X,I<AAA(L,2)>,' LBL 0')
+	L=L+1
+	WRITE (7,226) AAA(L,1)
+ 226	FORMAT (X,I<AAA(L,2)>,' CALL LBL 4 REP 3 /3')
+	L=L+1
+	WRITE (7,227) AAA(L,1)
+ 227	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')
+	L=L+1
+	WRITE (7,228) AAA(L,1)
+ 228	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 ROT+0')
+	L=L+1
+	WRITE (7,229) AAA(L,1)
+ 229	FORMAT (X,I<AAA(L,2)>,' L Z+10 R0 F MAX M')
+	L=L+1
+	WRITE (7,500) AAA(L,1)
+ 500	FORMAT (X,I<AAA(L,2)>,' L R F M25')
+	L=L+1
+	WRITE (7,501) AAA(L,1)
+ 501	FORMAT (X,I<AAA(L,2)>,' TOOL CALL 3 Z S 2500')
+	L=L+1
+	WRITE (7,502) AAA(L,1)
+ 502	FORMAT (X,I<AAA(L,2)>,' FN 0: Q20 = +280')
+	L=L+1
+	WRITE (7,503) AAA(L,1)
+ 503	FORMAT (X,I<AAA(L,2)>,' FN 0: Q21 = +280')
+	L=L+1
+	WRITE (7,504) AAA(L,1)
+ 504	FORMAT (X,I<AAA(L,2)>,' FN 0: Q22 = +280')
+	L=L+1
+	WRITE (7,505) AAA(L,1)
+ 505	FORMAT (X,I<AAA(L,2)>,' L X+0 Y+0 R0 F MAX M13')
+	L=L+1
+	WRITE (7,506) AAA(L,1)
+ 506	FORMAT (X,I<AAA(L,2)>,' CALL LBL 5 REP 1 /1')
+	L=L+1
+	WRITE (7,507) AAA(L,1)
+ 507	FORMAT (X,I<AAA(L,2)>,' L Z+10 R0 F MAX M')
+	L=L+1
+	WRITE (7,230) AAA(L,1)
+ 230	FORMAT (X,I<AAA(L,2)>,' FN 2: Q13 = +Q1 - +10')
+	L=L+1
+	WRITE (7,304) AAA(L,1)
+ 304	FORMAT (X,I<AAA(L,2)>,' FN 12: IF +Q13 LT +0 GOTO LBL 3')
+	L=L+1
+	WRITE (7,303) AAA(L,1)
+ 303	FORMAT (X,I<AAA(L,2)>,' FN 9: IF +Q13 EQU +0 GOTO LBL 3')
+	L=L+1
+	WRITE (7,231) AAA(L,1)
+ 231	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.0 POCHE CIRC.')
+	L=L+1
+	WRITE (7,232) AAA(L,1)
+ 232	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.1 DIST. -10')
+	L=L+1
+	WRITE (7,233) AAA(L,1)
+ 233	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.2 PROF. -Q13')
+	L=L+1
+	WRITE (7,234) AAA(L,1)
+ 234	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.3 PASSE -7 F180')
+	L=L+1
+	WRITE (7,235) AAA(L,1)
+ 235	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.4 RAYON 25')
+	L=L+1
+	WRITE (7,236) AAA(L,1)
+ 236	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 5.5 F180 DR+')
+ 	L=L+1
+	WRITE (7,237) AAA(L,1)
+ 237	FORMAT (X,I<AAA(L,2)>,' L X+0 Y+0 R0 F MAX M')
+	L=L+1
+	WRITE (7,238) AAA(L,1)
+ 238	FORMAT (X,I<AAA(L,2)>,' L Z+10 R0 F MAX M')
+	L=L+1
+	WRITE (7,239) AAA(L,1)
+ 239	FORMAT (X,I<AAA(L,2)>,' CYCL CALL M')
+	L=L+1
+	WRITE (7,240) AAA(L,1)
+ 240	FORMAT (X,I<AAA(L,2)>,' L R F M25')
+	L=L+1
+	WRITE (7,241) AAA(L,1)
+ 241	FORMAT (X,I<AAA(L,2)>,' FN 12: IF +Q5 LT +38.5 GOTO LBL 3')
+	L=L+1
+	WRITE (7,301) AAA(L,1)
+ 301	FORMAT (X,I<AAA(L,2)>,' FN 9: IF +Q5 EQU +38.5 GOTO LBL 3')
+	L=L+1
+	WRITE (7,242) AAA(L,1)
+ 242	FORMAT (X,I<AAA(L,2)>,' TOOL CALL 2 Z S 3500')
+	L=L+1
+	WRITE (7,310) AAA(L,1)
+ 310	FORMAT (X,I<AAA(L,2)>,' FN 2: Q17 = +90 - +Q5')
+	L=L+1
+	WRITE (7,243) AAA(L,1)
+ 243	FORMAT (X,I<AAA(L,2)>,' LBL 9')
+ 	L=L+1
+	WRITE (7,244) AAA(L,1)
+ 244	FORMAT (X,I<AAA(L,2)>,' L X+0 Y+0 R0 F MAX M13')
+ 	L=L+1
+	WRITE (7,245) AAA(L,1)
+ 245	FORMAT (X,I<AAA(L,2)>,' CC X+0 Y+0')
+ 	L=L+1
+	WRITE (7,246) AAA(L,1)
+ 246	FORMAT (X,I<AAA(L,2)>,' LP PR+65 PA+Q5 RR F MAX M13')
+ 	L=L+1
+	WRITE (7,247) AAA(L,1)
+ 247	FORMAT (X,I<AAA(L,2)>,' L Z+0 RR F MAX M')
+ 	L=L+1
+	WRITE (7,248) AAA(L,1)
+ 248	FORMAT (X,I<AAA(L,2)>,' L Z-Q1 RR F180 M')
+ 	L=L+1
+	WRITE (7,249) AAA(L,1)
+ 249	FORMAT (X,I<AAA(L,2)>,' LP PR+20 PA+Q5 RR F M')
+ 	L=L+1
+	WRITE (7,250) AAA(L,1)
+ 250	FORMAT (X,I<AAA(L,2)>,' LP PR+20 PA+Q17 RR F M')
+ 	L=L+1
+	WRITE (7,251) AAA(L,1)
+ 251	FORMAT (X,I<AAA(L,2)>,' LP PR+65 PA+Q17 RR F M')
+ 	L=L+1
+	WRITE (7,252) AAA(L,1)
+ 252	FORMAT (X,I<AAA(L,2)>,' L Z+10 RR F MAX M')
+ 	L=L+1
+	WRITE (7,253) AAA(L,1)
+ 253	FORMAT (X,I<AAA(L,2)>,' L X+0 Y+0 R0 F MAX M')
+	L=L+1
+	WRITE (7,254) AAA(L,1)
+ 254	FORMAT (X,I<AAA(L,2)>,' LBL 0')
+	L=L+1
+	WRITE (7,255) AAA(L,1)
+ 255	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')
+	L=L+1
+	WRITE (7,256) AAA(L,1)
+ 256	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 IROT+90')
+	L=L+1
+	WRITE (7,257) AAA(L,1)
+ 257	FORMAT (X,I<AAA(L,2)>,' CALL LBL 9 REP 3 /3')
+	L=L+1
+	WRITE (7,258) AAA(L,1)
+ 258	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.0 ROTATION')
+	L=L+1
+	WRITE (7,259) AAA(L,1)
+ 259	FORMAT (X,I<AAA(L,2)>,' CYCL DEF 10.1 ROT+0')
+	L=L+1
+	WRITE (7,260) AAA(L,1)
+ 260	FORMAT (X,I<AAA(L,2)>,' STOP M25')
+	L=L+1
+	WRITE (7,261) AAA(L,1)
+ 261	FORMAT (X,I<AAA(L,2)>,' LBL 3')
+	L=L+1
+	WRITE (7,262) AAA(L,1)
+ 262	FORMAT (X,I<AAA(L,2)>,' L IZ+0.8 R0 FQ22 M13')
+	L=L+1
+	WRITE (7,263) AAA(L,1)
+ 263	FORMAT (X,I<AAA(L,2)>,' CALL LBL 5 REP')
+	L=L+1
+	WRITE (7,270) AAA(L,1)
+ 270	FORMAT (X,I<AAA(L,2)>,' CC X+0 Y+Q12')
+	L=L+1
+	WRITE (7,265) AAA(L,1)
+ 265	FORMAT (X,I<AAA(L,2)>,' LBL 0')
+	L=L+1
+	WRITE (7,266) AAA(L,1)
+ 266	FORMAT (X,I<AAA(L,2)>,' L R F M25')
+	L=L+1
+	WRITE (7,267) AAA(L,1),NUMB
+ 267	FORMAT (X,I<AAA(L,2)>,' END PGM ',A3,' MM')	
+   	END
+
+C-------------------------------------------------------------------------------
+C	ENTREE DE LA FONCTION POLYNOMIALE RESULTANT DE L'AJUSTEMENT 
+C	DE LA VARIATION DU MAXIMUM DES COURBES DE BRAGG.
+C-------------------------------------------------------------------------------
+
+        FUNCTION FONCT(XHER)
+	FONCT=1.0084707-1.2231932E-1*XHER+7.0574773E-3*XHER**2
+     1	-2.0157541E-4*XHER**3+2.1806800E-6*XHER**4
+	END            

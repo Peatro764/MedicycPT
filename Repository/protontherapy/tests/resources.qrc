@@ -1,0 +1,40 @@
+<RCC>
+<qresource prefix="/">
+    <file>scripts/setupUnitTests.sql</file>
+    <file>scripts/createOMRON.sql</file>
+    <file>scripts/createPatient.sql</file>
+    <file>scripts/createTreatmentType.sql</file>
+    <file>scripts/createTreatment.sql</file>
+    <file>scripts/createActiveTreatment.sql</file>
+    <file>scripts/createChambre.sql</file>
+    <file>scripts/createCollimateur.sql</file>
+    <file>scripts/createCompensateur.sql</file>
+    <file>scripts/createFraiseuseProgram.sql</file>
+    <file>scripts/createSeance.sql</file>
+    <file>scripts/createDosimetrySummary.sql</file>
+    <file>scripts/createDosimetry.sql</file>
+    <file>scripts/createDosimetryRecord.sql</file>
+    <file>scripts/createSeanceRecord.sql</file>
+    <file>scripts/createBaliseLevel.sql</file>
+    <file>scripts/createBaliseRecord.sql</file>
+    <file>scripts/createBaliseConfiguration.sql</file>
+    <file>scripts/createBaliseCalibration.sql</file>
+    <file>scripts/createXRayRecord.sql</file>
+    <file>scripts/createDefaults.sql</file>
+    <file>scripts/createMCNPXDoseCurve.sql</file>
+    <file>scripts/createOperator.sql</file>
+    <file>scripts/createModulateur.sql</file>
+    <file>scripts/createDegradeur.sql</file>
+    <file>scripts/createCheckConnection.sql</file>
+    <file>scripts/createOIDS.sql</file>
+    <file>scripts/fillOMRON.sql</file>
+    <file>scripts/fillChambres.sql</file>
+    <file>scripts/fillDegradeurs.sql</file>
+    <file>scripts/fillModulateurs.sql</file>
+    <file>scripts/fillOperators.sql</file>
+    <file>scripts/fillDefaults.sql</file>
+    <file>scripts/fillCheckConnection.sql</file>
+    <file>scripts/fillTopDuJourDossier.sql</file>
+
+ </qresource>
+</RCC>

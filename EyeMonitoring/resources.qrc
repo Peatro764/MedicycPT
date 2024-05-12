@@ -1,0 +1,10 @@
+<RCC>
+<qresource prefix="/">
+    <file>images/exit.png</file>
+    <file>images/exit_clicked.png</file>
+    <file>images/eraser.png</file>
+    <file>images/eraser_clicked.png</file>
+    <file>images/palette.png</file>
+    <file>images/palette_clicked.png</file>
+</qresource>
+</RCC>

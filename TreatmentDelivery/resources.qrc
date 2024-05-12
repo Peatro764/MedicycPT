@@ -1,0 +1,33 @@
+<RCC>
+<qresource prefix="/">
+    <file>images/button_start.png</file>
+    <file>images/button_start_pressed.png</file>
+    <file>images/button_pass_to_next.png</file>
+    <file>images/button_pass_to_next_pressed.png</file>
+    <file>images/blue_right_arrow.png</file>
+    <file>images/eye4.jpg</file>
+    <file>images/button_man.png</file>
+    <file>images/button_man_pressed.png</file>
+    <file>images/download_button.png</file>
+    <file>images/button_red_40.png</file>
+    <file>images/button_green_40.png</file>
+    <file>images/warning.jpeg</file>
+    <file>images/visible_25.png</file>
+    <file>images/questionmark_button.png</file>
+    <file>images/settings_button.png</file>
+    <file>images/log_button.png</file>
+    <file>images/exit_button.png</file>
+    <file>images/connected_red_button.png</file>
+    <file>images/connected_green_button.png</file>
+    <file>images/db_button_green.png</file>
+    <file>images/db_button_red.png</file>
+    <file>images/delete_button.png</file>
+    <file>images/print_button.png</file>
+    <file>images/save_button.png</file>
+    <file>images/start_button.png</file>
+    <file>images/disabled_button.png</file>
+    <file>images/right_arrow_button_25x25.png</file>
+    <file>images/button_refresh.png</file>
+    <file>images/button_refresh_pressed.png</file>
+</qresource>
+</RCC>

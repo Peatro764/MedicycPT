@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=MillingMachine
+Comment=MillingMachine
+Exec=~/build/release-MedicycPT/LaunchScripts/StartMMM.sh
+Icon=~/build/release-MedicycPT/Icons/MillingMachineIcon.png
+Terminal=false
+Name[en_GB]=MillingMachine

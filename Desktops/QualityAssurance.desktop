@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=QualityAssurance
+Comment=QualityAssurance
+Exec=/home/cyclo/build/release-MedicycPT/LaunchScripts/StartMQA.sh
+Icon=/home/cyclo/build/release-MedicycPT/Icons/QualityAssuranceIcon.png
+Terminal=false

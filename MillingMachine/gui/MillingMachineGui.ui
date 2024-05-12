@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MillingMachineGui</class>
+ <widget class="QWidget" name="MillingMachineGui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>714</width>
+    <height>678</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGroupBox" name="fraiseuseProgramGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>70</y>
+     <width>381</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 2px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+   </property>
+   <property name="title">
+    <string>Programme</string>
+   </property>
+   <widget class="QPlainTextEdit" name="fraiseuseProgramPlainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>341</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>341</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="dossierLabel">
+       <property name="text">
+        <string>Dossier</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="typeLabel">
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="dossierLineEdit">
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QComboBox" name="typeComboBox">
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="fraiseuseGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>231</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 2px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+
+QCheckBox {
+background: transparant;
+}
+
+</string>
+   </property>
+   <property name="title">
+    <string>Fraiseuse</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="fraiseuseVerticalLayout">
+     <item>
+      <widget class="QPushButton" name="sendPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Envoi</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="readPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Lecture</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="serialPortPushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>90</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-image: url(:/images/serial_port_black.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-style: raised; 
+border-width: 3px;
+border-color: white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ethernetPortPushButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>38</y>
+      <width>65</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>65</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>50</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-image: url(:/images/ethernet_port_black.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px;
+border-style: raised; 
+border-width: 0px;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="databaseGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>320</y>
+     <width>231</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 2px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+   </property>
+   <property name="title">
+    <string>Base de données</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="databaseVerticalLayout">
+     <item>
+      <widget class="QPushButton" name="sendToDatabasePushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Sauvegarde</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="readFromDatabasePushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Téléchargement</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="miscGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>500</y>
+     <width>231</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 2px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+   </property>
+   <property name="title">
+    <string>Divers</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="miscVerticalLayout">
+     <item>
+      <widget class="QPushButton" name="createTestProgramPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Creation programme de test</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="bottomFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>721</width>
+     <height>681</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>386</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="quitPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-image: url(:/images/exit_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px; 
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="dbPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-image: url(:/images/db_button_red.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px; 
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="configPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-image: url(:/images/settings_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px; 
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="printPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-image: url(:/images/print_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px;
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sendToFilePushButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-image: url(:/images/save_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px; 
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <zorder>bottomFrame</zorder>
+  <zorder>fraiseuseProgramGroupBox</zorder>
+  <zorder>fraiseuseGroupBox</zorder>
+  <zorder>databaseGroupBox</zorder>
+  <zorder>miscGroupBox</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

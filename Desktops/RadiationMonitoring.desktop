@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=RadiationMonitoring
+Comment=RadiationMonitoring
+Exec=/home/cyclo/build/release-MedicycPT/LaunchScripts/StartMRM.sh
+Icon=/home/cyclo/build/release-MedicycPT/Icons/RadiationMonitoringIcon.png
+Terminal=false

@@ -1,0 +1,18 @@
+<RCC>
+<qresource prefix="/">
+    <file>images/fraiseuse_green_transparant.png</file>
+    <file>images/fraiseuse_red_transparant.png</file>
+    <file>images/serial_port_black.png</file>
+    <file>images/serial_port_blue.png</file>
+    <file>images/ethernet_port_blue.png</file>
+    <file>images/ethernet_port_black.png</file>
+    <file>images/save_button.png</file>
+    <file>images/blue_background.jpg</file>
+    <file>images/print_button.png</file>
+    <file>images/db_button_red.png</file>
+    <file>images/db_button_green.png</file>
+    <file>images/settings_button.png</file>
+    <file>images/exit_button.png</file>
+    <file>images/background.jpg</file>
+</qresource>
+</RCC>

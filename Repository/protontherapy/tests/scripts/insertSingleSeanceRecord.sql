@@ -1,0 +1,1 @@
+insert into seancerecord(seance_id, timestamp, debit, duration, i_chambre1, i_chambre2, i_stripper, i_cf9, um_prevu, um_del) values (266, '2016-12-14 12:00', 1.33, '{1, 2, 10}', '{1,2,3}','{100, 200}', 33, 55, 437, '{2, 200, 437}');

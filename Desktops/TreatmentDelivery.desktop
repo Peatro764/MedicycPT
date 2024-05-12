@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=TreatmentDelivery
+Comment=TreatmentDelivery
+Exec=/home/cyclo/build/release-MedicycPT/LaunchScripts/StartMTD.sh
+Icon=/home/cyclo/build/release-MedicycPT/Icons/TreatmentDeliveryIcon.png
+Terminal=false

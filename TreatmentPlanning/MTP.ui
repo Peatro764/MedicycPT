@@ -1,0 +1,5673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MTP</class>
+ <widget class="QWidget" name="MTP">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1450</width>
+    <height>789</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="backgroundFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1450</width>
+     <height>791</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="topFrame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1450</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="dbPushButton">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>20</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-image: url(:/images/db_button_red.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px;
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="configPushButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>20</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-image: url(:/images/settings_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px;
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="topNavigPushButton">
+     <property name="geometry">
+      <rect>
+       <x>1350</x>
+       <y>10</y>
+       <width>20</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+border-image: url(:/images/arrow_top_blue.png);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="leftNavigPushButton">
+     <property name="geometry">
+      <rect>
+       <x>1300</x>
+       <y>40</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+border-image: url(:/images/arrow_left_blue.png);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="rightNavigPushButton">
+     <property name="geometry">
+      <rect>
+       <x>1380</x>
+       <y>40</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+border-image: url(:/images/arrow_right_blue.png);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="quitPushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-image: url(:/images/exit_button.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius:25px;
+border-style: raised; 
+border-width: 0px;
+}
+
+QPushButton:pressed {
+border-style: raised; 
+border-width: 4px;
+border-color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pageLabel">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>30</y>
+       <width>561</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>FreeSans</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="loginButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>1200</x>
+       <y>35</y>
+       <width>61</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Login</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>85</y>
+       <width>1450</width>
+       <height>6</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#line {
+border: 0.5px solid blue;
+background: rgb(85, 170, 255);
+        border-style: inset;
+}</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>100</y>
+      <width>1460</width>
+      <height>701</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="startWidget">
+     <widget class="QPushButton" name="dossierPushButton">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>90</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>220</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>220</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/dossier.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+QPushButton:disabled {
+background-image: url(:/images/dossier_bw.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid grey;
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="collimateurPushButton">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>390</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/collimateur2.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+QPushButton:disabled {
+background-image: url(:/images/collimateur_bw.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid gray;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="moddeglibPushButton">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>90</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/modulateur_library2.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+QPushButton:disabled {
+background-image: url(:/images/modulateur_library_bw.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid gray;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="compensateurPushButton">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>390</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/compensateur2.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+QPushButton:disabled {
+background-image: url(:/images/compensateur_bw.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid gray;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="createModulateurPushButton">
+      <property name="geometry">
+       <rect>
+        <x>1050</x>
+        <y>390</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/modulateur2.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+QPushButton:disabled {
+background-image: url(:/images/modulateur_bw.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid gray;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mathUtilsPushButton">
+      <property name="geometry">
+       <rect>
+        <x>1050</x>
+        <y>90</y>
+        <width>220</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-image: url(:/images/math_utils.png);
+background-repeat: no-repeat; 
+background-position: center;
+border-radius: 20px;
+border: 1px solid black;
+}
+QPushButton:pressed {
+border-width: 3px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>300</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dossiers&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>300</y>
+        <width>181</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Libraire d'Accessoires&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>1090</x>
+        <y>300</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Outils de calcul&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>600</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collimateur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>600</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Compensateur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>1090</x>
+        <y>600</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(49, 54, 59);
+</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modulateur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="dossierWidget">
+     <widget class="QPushButton" name="listDossier_createNewDossierPushButton">
+      <property name="geometry">
+       <rect>
+        <x>1350</x>
+        <y>9</y>
+        <width>50</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string extracomment="Create new dossier"/>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="statusTip">
+       <string extracomment="test2"/>
+      </property>
+      <property name="whatsThis">
+       <string extracomment="test1"/>
+      </property>
+      <property name="accessibleDescription">
+       <string extracomment="test3"/>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+border-image: url(:/images/create_new_button.png);
+border-radius:25px;
+}
+QPushButton:pressed {
+border-width: 2px;
+border-style: inset;
+}
+</string>
+      </property>
+      <property name="text">
+       <string extracomment="test4"/>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="listDossier_dossierTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>1450</width>
+        <height>621</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>4</number>
+      </property>
+      <property name="midLineWidth">
+       <number>6</number>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>1000</number>
+      </property>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>Dossier</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Patient</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Treatment Type</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Modulateur</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Degradeur(s)</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>230</red>
+         <green>230</green>
+         <blue>230</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Epaisseur Totale</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>231</red>
+         <green>231</green>
+         <blue>231</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Collimateur</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>231</red>
+         <green>231</green>
+         <blue>231</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Compensateur</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>230</red>
+         <green>230</green>
+         <blue>230</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Debit Mesuré</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>229</red>
+         <green>229</green>
+         <blue>229</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Debit MCNPX</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>235</red>
+         <green>235</green>
+         <blue>235</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Debit DEBROCA</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>232</red>
+         <green>232</green>
+         <blue>232</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Ratio Debit</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>235</red>
+         <green>235</green>
+         <blue>235</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Seances</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>229</red>
+         <green>229</green>
+         <blue>229</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Dose</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>229</red>
+         <green>229</green>
+         <blue>229</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>X-rays</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>231</red>
+         <green>231</green>
+         <blue>231</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Comments</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>1051</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="listDossier_fromTimeLabel">
+         <property name="minimumSize">
+          <size>
+           <width>27</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>27</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>De</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDateTimeEdit" name="listDossier_fromTimeDateTimeEdit">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="listDossier_toTimeLabel">
+         <property name="minimumSize">
+          <size>
+           <width>15</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>15</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDateTimeEdit" name="listDossier_toTimeDateTimeEdit">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dossierPage_dossierLabel">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Dossier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dossierPage_dossierLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dossierPage_lastNameLabel">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Nom patronymique</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dossierPage_lastNameLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>135</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>135</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dossierPage_lastNameLabel_2">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Type traitement</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dossierPage_comboBox_filter_treatmenttype"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="listDossier_queryPushButton">
+      <property name="geometry">
+       <rect>
+        <x>1130</x>
+        <y>20</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+      </property>
+      <property name="text">
+       <string>Requête</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="moddeglibWidget">
+     <widget class="QGroupBox" name="moddeglib_QueryGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>20</y>
+        <width>601</width>
+        <height>641</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 18pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Recherche Libraire</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QPushButton" name="moddeglib_queryModulateurPushButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>220</y>
+         <width>281</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Rechercher</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>80</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_Mod98Label">
+          <property name="minimumSize">
+           <size>
+            <width>89</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;lt; &amp;Delta;Mod98 &amp;lt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="moddeglib_minDMod98LineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="moddeglib_enableMod98Selection_RadioButton">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="moddeglib_maxDMod98LineEdit"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>110</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="moddeglib_enableMod100Selection_RadioButton">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_mod100Label">
+          <property name="minimumSize">
+           <size>
+            <width>89</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;lt; &amp;Delta;Mod100 &amp;lt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="moddeglib_minDMod100LineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="moddeglib_maxDMod100LineEdit"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_5">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>140</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="moddeglib_enableParcoursSelection_RadioButton">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_ParcoursLabel">
+          <property name="minimumSize">
+           <size>
+            <width>89</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;lt; &amp;Delta;Parcours &amp;lt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="moddeglib_minDParcoursLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="moddeglib_maxDParcoursLineEdit"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableWidget" name="moddeglib_modulatorProposalTableWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>311</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showGrid">
+        <bool>true</bool>
+       </property>
+       <property name="rowCount">
+        <number>20</number>
+       </property>
+       <property name="columnCount">
+        <number>4</number>
+       </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>63</number>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderMinimumSectionSize">
+        <number>21</number>
+       </attribute>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>30</number>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="background">
+         <color>
+          <red>235</red>
+          <green>235</green>
+          <blue>235</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Mod100/98</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="background">
+         <color>
+          <red>235</red>
+          <green>235</green>
+          <blue>235</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Parcours</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="background">
+         <color>
+          <red>232</red>
+          <green>232</green>
+          <blue>232</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Degr</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="background">
+         <color>
+          <red>238</red>
+          <green>238</green>
+          <blue>238</blue>
+         </color>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLabel" name="moddeglib_modLabel">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>300</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Modulateurs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="moddeglib_DegLabel">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>300</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Dégradeurs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>271</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="moddeglib_selectionGridLayout">
+        <item row="1" column="2">
+         <widget class="QLabel" name="moddeglib_desParcoursUnitLabel">
+          <property name="text">
+           <string>mm tissue</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="moddeglib_desModLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="moddeglib_desModLabel">
+          <property name="text">
+           <string>Modulation</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_desModUnitLabel">
+          <property name="text">
+           <string>mm tissue</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="moddeglib_desParcoursLabel">
+          <property name="text">
+           <string>Parcours</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="moddeglib_desParcoursLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="moddeglib_maxParcoursLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Max&lt;span style=&quot; vertical-align:sub;&quot;&gt;Parcours&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="moddeglib_maxParcoursUnitLabel">
+          <property name="text">
+           <string>mm tissue</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="moddeglib_maxParcoursLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableWidget" name="moddeglib_degradeurProposalTableWidget">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>350</y>
+         <width>261</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showGrid">
+        <bool>true</bool>
+       </property>
+       <property name="rowCount">
+        <number>20</number>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>10</number>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>80</number>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderMinimumSectionSize">
+        <number>21</number>
+       </attribute>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>30</number>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <row/>
+       <column>
+        <property name="text">
+         <string>ID(s)</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="background">
+         <color>
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Degr</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="background">
+         <color>
+          <red>235</red>
+          <green>235</green>
+          <blue>235</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>ΔDegr</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+        <property name="background">
+         <color>
+          <red>230</red>
+          <green>230</green>
+          <blue>230</blue>
+         </color>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="drawCurvesPushButton">
+       <property name="geometry">
+        <rect>
+         <x>1100</x>
+         <y>420</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Draw Curves</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="drawCurvesPushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>1110</x>
+         <y>420</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Draw Curves</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="moddeglib_parametersLabel">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Paramètres&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="moddeglib_filtersLabel">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>50</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Filtres&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="moddeglib_associateToDossierPushButton">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>220</y>
+         <width>271</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Associer au dossier</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="moddeglib_sobpGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>20</y>
+        <width>571</width>
+        <height>641</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 18pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}</string>
+      </property>
+      <property name="title">
+       <string>SOBP</string>
+      </property>
+      <widget class="QCustomPlot" name="moddeglib_sobpCustomPlot" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>551</width>
+         <height>391</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>530</y>
+         <width>211</width>
+         <height>100</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="moddeglib_debitGridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="moddeglib_debitMCNPXLabel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>80</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Debit&lt;span style=&quot; vertical-align:sub;&quot;&gt;MCNPX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="moddeglib_ratioDebitLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="moddeglib_debitDEBROCALabel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Debit&lt;span style=&quot; vertical-align:sub;&quot;&gt;DEBROCA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="moddeglib_debitMCNPXLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="moddeglib_debitDEBROCALineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="moddeglib_ratioDebitLabel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Rapport&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="moddeglib_debitDEBROCAUnitLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cGy/UM&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="ratioDebitUnitLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_debitMCNPXUnitLabel">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cGy/UM&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_8">
+       <property name="geometry">
+        <rect>
+         <x>257</x>
+         <y>530</y>
+         <width>301</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="moddeglib_SOBPGridLayout">
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="moddeglib_ZhalfActLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="moddeglib_ZhalfLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Z&lt;span style=&quot; vertical-align:sub;&quot;&gt;1/2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="moddeglib_DMULabel">
+          <property name="maximumSize">
+           <size>
+            <width>80</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(D/MU)(Z&lt;span style=&quot; vertical-align:sub;&quot;&gt;1/2&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="moddeglib_refTitleLabel">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;MCNPX&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;REF&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="moddeglib_DMURefLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="moddeglib_dossierTitleLabel">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;MCNPX&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;ACT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="moddeglib_DMUActLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLabel" name="moddeglib_DMUUnitLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cGy/UM&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLineEdit" name="moddeglib_ZhalfRefLineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLabel" name="moddeglib_ZHalfUnitLabel">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cm&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QFrame" name="frame">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>440</y>
+         <width>551</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#QFrame {
+border: white;
+}
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="gridLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>551</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="moddeglib_DegModIdGridLayout">
+         <item row="0" column="3">
+          <widget class="QLabel" name="moddeglib_selectDegLabel">
+           <property name="text">
+            <string>Degradeur ID</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="moddeglib_selectModLineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>70</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLineEdit" name="moddeglib_selectDegLineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="5">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="moddeglib_selectModLabel">
+           <property name="text">
+            <string>Modulateur ID</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7">
+          <widget class="QPushButton" name="moddeglib_calculateSOBPPushButton">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Calculer SOBP</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="Line" name="line_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>510</y>
+         <width>550</width>
+         <height>3</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#line_2 {
+border: 0.5px solid blue;
+background: rgb(85, 170, 255);
+        border-style: inset;
+}</string>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="mathUtilsWidget">
+     <widget class="QGroupBox" name="mathUtilsPage_NIFGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>291</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Calcul des angles de NIF</string>
+      </property>
+      <widget class="QWidget" name="formLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>251</width>
+         <height>120</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="mathUtilsPage_InputFormLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="mathUtilsPage_scanPolareLabel">
+          <property name="text">
+           <string>Scan polaire (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_scanPolareLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="mathUtilsPage_scanAzLabel">
+          <property name="text">
+           <string>Scan azimuthal (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="mathUtilsPage_scanOverHeadLabel">
+          <property name="text">
+           <string>Scan/eyeplan over head (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="mathUtilsPage_scanLateralLabel">
+          <property name="text">
+           <string>Scan/eyeplan latéral (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_scanAzLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_scanOverHeadLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_scanLateralLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="formLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>220</y>
+         <width>251</width>
+         <height>124</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="mathUtilsPage_OutputFormLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="mathUtilsPage_nifPolareLabel">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>NIF polaire (mm)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="mathUtilsPage_nifAzLabel">
+          <property name="minimumSize">
+           <size>
+            <width>180</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>NIF azimuthale (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="mathUtilsPage_polareFinalLabel">
+          <property name="text">
+           <string>Polaire finale (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="mathUtilsPage_azFinalLabel">
+          <property name="text">
+           <string>Azimuth final (°)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="mathUtilsPage_nifPolareLabelValue">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="mathUtilsPage_nifAzLabelValue">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="mathUtilsPage_polareFinaleLabelValue">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="mathUtilsPage_azFinalLabelValue">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="mathUtilsPage_calculatePushButton">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>175</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Calculer</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="mathUtilsPage_CoordGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>20</y>
+        <width>341</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Calcul de Corde</string>
+      </property>
+      <widget class="QWidget" name="formLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>301</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="mathUtilsPage_CoordFormLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="mathUtilsPage_coordDiametreLabel">
+          <property name="text">
+           <string>Diamètre du globe oculaire (mm)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_coordDiametreLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="mathUtilsPage_coordMesureArcLabel">
+          <property name="text">
+           <string>Mesure d'arc (mm)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="mathUtilsPage_coordMesureArcLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="mathUtilsPage_coordCalculatePushButton">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>120</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Calculer</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="mathUtilsPage_coordPlainTextEdit">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>220</y>
+         <width>231</width>
+         <height>101</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="mathUtilsPage_coordClearPushButton">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>170</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Effacer</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="collimateurWidget">
+     <widget class="QGroupBox" name="coll_eyePlanFileGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>110</y>
+        <width>631</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Collimateur</string>
+      </property>
+      <widget class="CollimatorWidget" name="coll_collimatorWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>40</y>
+         <width>270</width>
+         <height>270</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QWidget" name="formLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>308</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="coll_dossierTitleLabel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Dossier</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="coll_patientLabel_6">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Fichier EyePlan</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="coll_patientLabel_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Nom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="coll_patientLabel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Prénom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="coll_patientLabel_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Base de données</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="coll_patientLabel_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Nom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLabel" name="label_db_patient_lastname">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="coll_patientLabel_5">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Prénom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="label_db_patient_firstname">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="coll_dossierLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="coll_patientLastNameLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="coll_patientFirstNameLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="coll_actionsGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>110</y>
+        <width>291</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 16pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Actions</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>251</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="coll_acionsVerticalLayout">
+        <item>
+         <widget class="QPushButton" name="coll_uploadEyePlanFilePushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Charger fichier EyePlan</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="coll_saveToDatabasePushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Sauver dans BDD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="coll_fetchFromDatabasePushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Charger depuis BDD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="coll_showFraiseuseProgramPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Programme fraiseuse</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="compensateurWidget">
+     <widget class="QCustomPlot" name="comp_compXZCustomplot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>0</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: grey;
+</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="comp_compXYCustomplot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>350</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: grey;</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="comp_eyeXZCustomplot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>0</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: grey;</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="comp_errorHistogramCustomplot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>350</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: grey;</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="dos_newDossierNumberGroupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>130</y>
+        <width>301</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Paramètres</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>285</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="comp_eyeInputGridLayout">
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="comp_xcentreLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QSlider" name="comp_errorScalingHorizontalSlider">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="comp_ycentreLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compensateur y&lt;span style=&quot; vertical-align:sub;&quot;&gt;centre &lt;/span&gt;(mm)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="comp_maxParcoursErrorLabel_2">
+          <property name="text">
+           <string>Erreur vs rayon</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="comp_eyeDSclereLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="comp_maxParcoursErrorLabel">
+          <property name="text">
+           <string>Erreur parcours max (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="comp_eyeDiameterLabel">
+          <property name="text">
+           <string>Diamètre oeil (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="comp_ycentreLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="comp_bolusThicknessLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="comp_eyeDSclereLabel">
+          <property name="text">
+           <string>Epaisseur sclère (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="comp_parcoursLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="comp_parcoursLabel_2">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;(= PARCOURS&lt;/span&gt;&lt;span style=&quot; font-size:7pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt; - Σ(RS) - COMP&lt;/span&gt;&lt;span style=&quot; font-size:7pt; vertical-align:sub;&quot;&gt;base &lt;/span&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="comp_eyeDiameterLineEdit">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QDoubleSpinBox" name="comp_maxParcoursErrorDoubleSpinBox">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="comp_bolusThicknessLabel">
+          <property name="text">
+           <string>Epaisseur paupière (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="comp_xcentreLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compensateur x&lt;span style=&quot; vertical-align:sub;&quot;&gt;centre &lt;/span&gt;(mm)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="comp_parcoursLabel">
+          <property name="text">
+           <string>Parcours protons (mm tissue)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="dos_newDossierNumberGroupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>0</y>
+        <width>301</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Dossier</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>281</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="comp_dossierLineEdit"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="comp_dossierLabel">
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="comp_loadDossierPushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>281</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+       </property>
+       <property name="text">
+        <string>Charger</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="dos_newDossierNumberGroupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>440</y>
+        <width>301</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Actions</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>261</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="comp_createCompensateurPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>35</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Creation Compensateur</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comp_saveToDatabasePushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Sauver dans BDD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comp_fetchFromDatabasePushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Charger depuis BDD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comp_showFraiseuseProgramPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Programme fraiseuse</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comp_printTransparancyPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Montrer transparant</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="modulateurWidget">
+     <widget class="QCustomPlot" name="modpage_sobpCustomPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>571</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white;
+</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="modPage_weightsTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>340</y>
+        <width>351</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="rowCount">
+       <number>10</number>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>65</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>80</number>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>40</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>40</number>
+      </attribute>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>mm plexi</string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>235</red>
+         <green>235</green>
+         <blue>235</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>       poid        </string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>234</red>
+         <green>234</green>
+         <blue>234</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>delta</string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>231</red>
+         <green>231</green>
+         <blue>231</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>angle</string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>226</red>
+         <green>226</green>
+         <blue>226</blue>
+        </color>
+       </property>
+      </column>
+     </widget>
+     <widget class="QCustomPlot" name="modpage_modulateurCustomPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>330</y>
+        <width>341</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white;
+</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="modPage_InputGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>10</y>
+        <width>321</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Paramètres</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>295</width>
+         <height>306</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="modPage_InputGridLayout">
+        <item row="9" column="1">
+         <widget class="QLineEdit" name="modPage_maxParcoursLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="modPage_maxParcoursLabel">
+          <property name="text">
+           <string>Parcours max (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="modPage_epsConvergenceLabel">
+          <property name="text">
+           <string>Crétère de convergence</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="modPage_nSectorsLabel">
+          <property name="text">
+           <string>Nombre de secteurs</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="modPage_modulationLabel">
+          <property name="text">
+           <string>Modulation (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="modPage_parcoursLineEdit"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="modPage_parcoursLabel">
+          <property name="text">
+           <string>Parcours (mm tissu)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="modPage_modulationLineEdit"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="modPage_decalageLabel">
+          <property name="text">
+           <string>Décalage (mm plexi)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="modPage_decalageLineEdit"/>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="modPage_nSectorsLineEdit"/>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="modPage_epsConvergenceLineEdit"/>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLineEdit" name="modPage_modulationStepLineEdit"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="modPage_dataSetComboBox">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="modPage_modulationStepLabel">
+          <property name="text">
+           <string>Pas de modulation (mm plexi)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="modPage_dataSetLabel">
+          <property name="text">
+           <string>Jeu de données</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="modPage_optimisationAlgorithmComboBox">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="modPage_optimisationAlgorithmLabel">
+          <property name="text">
+           <string>Algorithm d'optimisation</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="modPage_basePlateLabel">
+          <property name="text">
+           <string>Epaisseur support (mm plexi)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="modPage_basePlateLineEdit"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="modPage_actionsGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>410</y>
+        <width>321</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string>Actions</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>271</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QPushButton" name="modPage_createModulateurPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Créer le modulateur</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="modPage_saveMillingProgramPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Sauver le programme fraiseuse</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="modPage_saveModulatorPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Sauver le modulateur</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="modPage_fetchFromDbPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Charger depuis BDD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="modPage_showFraiseuseProgramPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+border-radius:3px;
+border-style: solid; 
+border-width: 1px;
+border-color: grey;
+}
+
+QPushButton:pressed {
+border-radius:3px;
+border-style: solid; 
+border-width: 2px;
+border-color: grey;
+}</string>
+          </property>
+          <property name="text">
+           <string>Montrer programme fraiseuse</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="modPage_parametersGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>1120</x>
+        <y>0</y>
+        <width>121</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+	font: 75 12pt &quot;Century Schoolbook L&quot;;
+  border: 1px solid gray;
+  border-radius: 9px;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center; 
+}
+
+QLabel {
+background: transparent;
+}
+
+QCheckBox {
+background: white;
+}
+
+
+</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>99</width>
+         <height>286</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="modPage_idLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="modPage_idLineEdit">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+color: CornflowerBlue;
+</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="modPage_degradeurLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dégradeur&lt;br/&gt;&lt;/span&gt;(mm plexi)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="modPage_degradeurLineEdit">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+color: CornflowerBlue;
+</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="modPage_penumbraLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pénombre&lt;br/&gt;&lt;/span&gt;(mm plexi)&lt;br/&gt;(90-10%)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="modPage_penumbraLineEdit">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: none;
+color: CornflowerBlue;
+
+</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="modPage_flatnessLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Homogénéité&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="modPage_flatnessLineEdit">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: none;
+color: CornflowerBlue;
+
+</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CollimatorWidget</class>
+   <extends>QWidget</extends>
+   <header>CollimatorWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>moddeglib_desModLineEdit</tabstop>
+  <tabstop>moddeglib_desParcoursLineEdit</tabstop>
+  <tabstop>moddeglib_maxParcoursLineEdit</tabstop>
+  <tabstop>modPage_decalageLineEdit</tabstop>
+  <tabstop>modPage_modulationStepLineEdit</tabstop>
+  <tabstop>modPage_nSectorsLineEdit</tabstop>
+  <tabstop>modPage_epsConvergenceLineEdit</tabstop>
+  <tabstop>modPage_idLineEdit</tabstop>
+  <tabstop>modPage_degradeurLineEdit</tabstop>
+  <tabstop>moddeglib_selectModLineEdit</tabstop>
+  <tabstop>moddeglib_selectDegLineEdit</tabstop>
+  <tabstop>moddeglib_ZhalfActLineEdit</tabstop>
+  <tabstop>moddeglib_ZhalfRefLineEdit</tabstop>
+  <tabstop>topNavigPushButton</tabstop>
+  <tabstop>leftNavigPushButton</tabstop>
+  <tabstop>comp_dossierLineEdit</tabstop>
+  <tabstop>comp_eyeDiameterLineEdit</tabstop>
+  <tabstop>comp_eyeDSclereLineEdit</tabstop>
+  <tabstop>comp_bolusThicknessLineEdit</tabstop>
+  <tabstop>comp_xcentreLineEdit</tabstop>
+  <tabstop>comp_ycentreLineEdit</tabstop>
+  <tabstop>comp_parcoursLineEdit</tabstop>
+  <tabstop>comp_maxParcoursErrorDoubleSpinBox</tabstop>
+  <tabstop>comp_errorScalingHorizontalSlider</tabstop>
+  <tabstop>configPushButton</tabstop>
+  <tabstop>moddeglib_degradeurProposalTableWidget</tabstop>
+  <tabstop>drawCurvesPushButton</tabstop>
+  <tabstop>drawCurvesPushButton_2</tabstop>
+  <tabstop>moddeglib_calculateSOBPPushButton</tabstop>
+  <tabstop>comp_createCompensateurPushButton</tabstop>
+  <tabstop>moddeglib_ratioDebitLineEdit</tabstop>
+  <tabstop>moddeglib_debitMCNPXLineEdit</tabstop>
+  <tabstop>moddeglib_debitDEBROCALineEdit</tabstop>
+  <tabstop>moddeglib_modulatorProposalTableWidget</tabstop>
+  <tabstop>moddeglib_DMURefLineEdit</tabstop>
+  <tabstop>moddeglib_DMUActLineEdit</tabstop>
+  <tabstop>dbPushButton</tabstop>
+  <tabstop>moddeglib_enableMod98Selection_RadioButton</tabstop>
+  <tabstop>collimateurPushButton</tabstop>
+  <tabstop>createModulateurPushButton</tabstop>
+  <tabstop>compensateurPushButton</tabstop>
+  <tabstop>moddeglib_enableMod100Selection_RadioButton</tabstop>
+  <tabstop>moddeglib_enableParcoursSelection_RadioButton</tabstop>
+  <tabstop>moddeglibPushButton</tabstop>
+  <tabstop>dossierPushButton</tabstop>
+  <tabstop>rightNavigPushButton</tabstop>
+  <tabstop>comp_loadDossierPushButton</tabstop>
+  <tabstop>moddeglib_queryModulateurPushButton</tabstop>
+  <tabstop>comp_saveToDatabasePushButton</tabstop>
+  <tabstop>comp_fetchFromDatabasePushButton</tabstop>
+  <tabstop>comp_showFraiseuseProgramPushButton</tabstop>
+  <tabstop>comp_printTransparancyPushButton</tabstop>
+  <tabstop>quitPushButton</tabstop>
+  <tabstop>coll_saveToDatabasePushButton</tabstop>
+  <tabstop>coll_fetchFromDatabasePushButton</tabstop>
+  <tabstop>coll_showFraiseuseProgramPushButton</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>mathUtilsPushButton</tabstop>
+  <tabstop>listDossier_createNewDossierPushButton</tabstop>
+  <tabstop>listDossier_dossierTableWidget</tabstop>
+  <tabstop>listDossier_fromTimeDateTimeEdit</tabstop>
+  <tabstop>listDossier_toTimeDateTimeEdit</tabstop>
+  <tabstop>dossierPage_dossierLineEdit</tabstop>
+  <tabstop>dossierPage_lastNameLineEdit</tabstop>
+  <tabstop>listDossier_queryPushButton</tabstop>
+  <tabstop>moddeglib_associateToDossierPushButton</tabstop>
+  <tabstop>mathUtilsPage_scanPolareLineEdit</tabstop>
+  <tabstop>mathUtilsPage_scanAzLineEdit</tabstop>
+  <tabstop>mathUtilsPage_scanOverHeadLineEdit</tabstop>
+  <tabstop>mathUtilsPage_scanLateralLineEdit</tabstop>
+  <tabstop>mathUtilsPage_calculatePushButton</tabstop>
+  <tabstop>mathUtilsPage_coordDiametreLineEdit</tabstop>
+  <tabstop>mathUtilsPage_coordMesureArcLineEdit</tabstop>
+  <tabstop>mathUtilsPage_coordCalculatePushButton</tabstop>
+  <tabstop>mathUtilsPage_coordPlainTextEdit</tabstop>
+  <tabstop>mathUtilsPage_coordClearPushButton</tabstop>
+  <tabstop>coll_uploadEyePlanFilePushButton</tabstop>
+  <tabstop>modPage_weightsTableWidget</tabstop>
+  <tabstop>modPage_maxParcoursLineEdit</tabstop>
+  <tabstop>modPage_modulationLineEdit</tabstop>
+  <tabstop>modPage_basePlateLineEdit</tabstop>
+  <tabstop>modPage_dataSetComboBox</tabstop>
+  <tabstop>moddeglib_maxDMod98LineEdit</tabstop>
+  <tabstop>moddeglib_maxDMod100LineEdit</tabstop>
+  <tabstop>moddeglib_minDParcoursLineEdit</tabstop>
+  <tabstop>modPage_parcoursLineEdit</tabstop>
+  <tabstop>modPage_optimisationAlgorithmComboBox</tabstop>
+  <tabstop>moddeglib_minDMod100LineEdit</tabstop>
+  <tabstop>modPage_createModulateurPushButton</tabstop>
+  <tabstop>modPage_saveMillingProgramPushButton</tabstop>
+  <tabstop>modPage_saveModulatorPushButton</tabstop>
+  <tabstop>modPage_fetchFromDbPushButton</tabstop>
+  <tabstop>modPage_showFraiseuseProgramPushButton</tabstop>
+  <tabstop>moddeglib_minDMod98LineEdit</tabstop>
+  <tabstop>moddeglib_maxDParcoursLineEdit</tabstop>
+  <tabstop>modPage_penumbraLineEdit</tabstop>
+  <tabstop>modPage_flatnessLineEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

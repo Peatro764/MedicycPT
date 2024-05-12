@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "device_selector": {
+    "isValid": true
+  },
+  "tab_notification_manager": {
+    "isValid": true
+  },
+  "register_matrix_fw": {
+    "isValid": true
+  },
+  "powerup_defaults_fw": {
+    "isValid": true
+  }
+}

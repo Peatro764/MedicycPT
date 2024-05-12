@@ -1,0 +1,162 @@
+.fullPage {
+    height:100%;
+}
+html {
+    background-image:url('../img/background.png');
+    /*min-width: 500px;*/
+}
+
+body {
+    background-image:url('../img/background.png');
+    font-size: 14px;
+    padding-left:0px;
+    padding-right:0px;
+}
+#module-chrome-tab-holder {
+    background-image:url('../img/background.png');
+}
+
+.unselectable {
+    cursor: default;
+   -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+p, h1, h2, h3 {
+    cursor: default;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.selectableText {
+    user-select: initial;
+    -webkit-user-select: initial;
+}
+#device-search-msg {
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    left: 40%;
+    right: 40%;
+    -moz-box-shadow: 0 0 10px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 10px #000000;
+    width: 150px;
+}
+
+#premature-error-holder {
+    display: none;
+}
+#content-holder{
+    margin: 0px;
+}
+#lvmDownloadBox {
+    background-color: white;
+    -moz-box-shadow: 0 0 10px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 10px #000000;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+}
+
+#module-chrome-header .alert-holder {
+    position:absolute;
+    right:10px;
+    left:0;    
+}
+#module-chrome-header .alert-holder .alert{
+    margin-bottom:0;   
+}
+
+
+/* Some basic text & background coloring classes */
+.isa_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.isa_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.isa_error {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+/*@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (max-width: 767px) {
+
+}*/
+@media screen and (min-width: 768px) {
+   /* body {
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    #module-list
+    {
+        height: 657px;
+        overflow: auto;
+    }*/
+}
+
+@media screen and (max-width: 767px) {
+    /*body {
+        overflow: auto;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    #module-list {
+        margin: 0px;
+        display: none;
+    }*/
+}
+
+/**
+Configure the scroll bars of the program:
+http://trac.webkit.org/export/41842/trunk/LayoutTests/scrollbars/overflow-scrollbar-combinations.html
+http://css-tricks.com/custom-scrollbars-in-webkit/
+https://www.webkit.org/blog/363/styling-scrollbars/
+http://css-tricks.com/examples/WebKitScrollbars/
+
+Either define scroll bars for each os or add os switches to add
+padding to allow proper styling for scroll bars.
+**/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #f3f3f3;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    
+    background:#A3A3A4;
+    background:#BABABA;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:#8C8B8D;
+    background:#939393;
+}
+::-webkit-scrollbar-thumb:active {
+    background:#7B7A7E;
+}

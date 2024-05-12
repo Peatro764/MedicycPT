@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=VDR
+Comment=VDR
+Exec=/home/cyclo/workspace/MedicycPT/LaunchScripts/StartVDR.sh
+Icon=/home/cyclo/workspace/MedicycPT/Icons/QualityAssuranceIcon.png
+Terminal=false
